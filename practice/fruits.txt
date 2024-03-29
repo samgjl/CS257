@@ -1,6 +1,5 @@
 apples
 grapes
 Apples
-Grapes
 bananas
 mangos
