@@ -5,6 +5,9 @@
 SELECT * FROM earthquakes WHERE mag > 4.0 AND depth > 10.0;
 -- "Which ones under a 4.0 magnitude have a depth of less than 10 (km?)?"
 SELECT * FROM earthquakes WHERE mag < 4.0 AND depth < 10.0;
+-- "What's the average depth for Texas earthquakes in 2023?"
+-- * Answer: 7.485 (km?)
+SELECT AVG(depth) FROM earthquakes WHERE place LIKE '%Texas' AND EXTRACT(year from quaketime) = 2023;
 
 --+ USING 'SELECT' WITHOUT '*' +--
 -- I keep seing this "SELECT *" opener, so I want to see what it means
