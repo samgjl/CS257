@@ -1,4 +1,4 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+quaketime,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
 2023-01-27T20:25:27.038Z,10.7145,125.4476,69.238,5.4,mww,190,26,3.624,0.84,us,us6000jjtj,2023-01-27T21:08:40.988Z,"32 km ENE of Hingatungan, Philippines",earthquake,7.83,5.358,0.066,22,reviewed,us,us
 2023-01-27T18:18:00.454Z,-2.8446,129.6184,20.664,4.7,mb,92,62,2.628,0.6,us,us6000jjsz,2023-01-27T20:31:54.040Z,"95 km NE of Amahai, Indonesia",earthquake,4.25,4.631,0.066,78,reviewed,us,us
 2023-01-27T16:37:39.419Z,-23.7222,-179.4605,525.778,4.6,mb,33,122,4.686,0.53,us,us6000jjsa,2023-01-27T17:00:08.040Z,"south of the Fiji Islands",earthquake,16.53,18.134,0.1,30,reviewed,us,us
