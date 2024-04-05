@@ -1,13 +1,14 @@
-def main():
-    print("opening...")
-    with open("lab-files/earthquakeData.csv", "r") as f:
-        lines = f.readlines()
-        print(lines)
-    print("writing...")
-    with open("lab-files/earthquakeData.csv", "w") as f:
+def rm_missing_cols(path):
+    f = open(path, "r")
+    lines = f.readlines()
+    f.close()
+    
+    with open(path, "w") as f:
         for line in lines:
             if ",," not in line:
                 f.write(line)
+    print("rm_missing_cols complete.")
                 
 if __name__ == "__main__":
-    main()
+    path = "lab-files/earthquakeData.csv"
+    rm_missing_cols(path)
