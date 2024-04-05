@@ -10,4 +10,4 @@ The data is contained in ```lab-files```, specifically in ```earthquakeData.csv`
 My experimentation for __Part 4__ is in ```part4.md```.
 
 ## Part 5
-Part 5's queries are contained in ```earthquakequery.sql```, with short descriptions/motivations in ```part5.md```.
+Part 5's queries are contained in ```earthquakequery.sql```, with (Readable version here: ```part5.md```).
