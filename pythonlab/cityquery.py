@@ -104,6 +104,14 @@ def interactiveQueries():
     # ^ So DC actually has a pretty bad rounding erorr here...
     print("")
     
+    # I'm not 100% sure if you wanted the total population of *each* city, \
+        # or if you wanted the total population summed over all cities, \
+        # so I made one for each city to0.
+    yn = input(f"Would you like to know the populations of each of these {len(cities)} cities? (y/N): ")
+    if yn.lower() == "y":
+        for city in cities:
+            print(f"   {city[0]}: {city[2]}")
+    
     
     
 
