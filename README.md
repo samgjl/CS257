@@ -9,4 +9,6 @@ This repository contains my work (labs, homework, experimentation, etc.) for Car
   - No specific directory, all deliverables will appear in the commit history.
 - **Lab 2: SQL Lab**
   - All necessary files find themselves trapped in the ```sqllab``` folder.
+- **Lab 3: Python Lab**
+  - All necessary files manifest in the ```pythonlab``` folder.
   
