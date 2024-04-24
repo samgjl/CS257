@@ -17,10 +17,10 @@ def rand(fun):
         
     name = genName()
     year = random.randint(1000, 2000)
-    city = genCity()
-    return render_template("person.html", title = title, randName = name, randYear = year, randCity = city)
+    place = genPlace()
+    return render_template("person.html", title = title, randName = name, randYear = year, randCity = place[0], randState = place[1])
 
-def genCity():
+def genPlace():
     conn = psycopg2.connect(
         host = "localhost",
         port = 5432,
@@ -30,8 +30,8 @@ def genCity():
     )
     cur = conn.cursor()
     
-    cur.execute("SELECT city FROM us_cities ORDER BY RANDOM() LIMIT 1;")
-    city = cur.fetchone()[0]
+    cur.execute("SELECT city, home_state FROM us_cities ORDER BY RANDOM() LIMIT 1;")
+    city = cur.fetchone()
     conn.close()
     return city
 
