@@ -3,6 +3,9 @@ import psycopg2
 
 app = flask.Flask(__name__)
 
+@app.route('/')
+def hi():
+    return "Hello World!"
 
 @app.route('/hello')
 def my_function():
@@ -21,7 +24,7 @@ def my_color(word1):
 def get_population(place: str):
     if len(place) > 2:
         return f"<h1 style='color:Red'> Query too long: <span style='color:Gray'>{place}</span><br></br> Please use a 2-letter US state code."
-    _, cur = getConnection()
+    conn, cur = getConnection()
     # Make our query:
     query = f"SELECT state, state_pop FROM us_states WHERE code = '{place.upper()}'"
     cur.execute(query)
@@ -35,6 +38,7 @@ def get_population(place: str):
     for i in range(len(pop)-3, 0, -3):
         pop = pop[:i] + "," + pop[i:]
     # We're good! Return:
+    conn.close()
     return f"<h1> {result[0]} has a population of {pop}.</h1>"
     
 
