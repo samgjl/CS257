@@ -7,6 +7,7 @@ app = flask.Flask(__name__)
 def hi():
     return "Hello World!"
 
+# This is only here because I don't know if you want it to be:
 @app.route('/hello')
 def my_function():
     return "Hello World!"
