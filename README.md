@@ -10,5 +10,7 @@ This repository contains my work (labs, homework, experimentation, etc.) for Car
 - **Lab 2: SQL Lab**
   - All necessary files find themselves trapped in the ```sqllab``` folder.
 - **Lab 3: Python Lab**
-  - All necessary files manifest in the ```pythonlab``` folder.
+  - The files manifest in the ```pythonlab``` folder.
+- **Lab 4: Flask Lab**
+  - May the contents be discovered under the ```flasklab``` folder.
   
