@@ -18,10 +18,19 @@
 
     <div id="content" class="content">
         <!-- !!PAGE CONTENT GOES HERE!! -->
-        <script>
-            let parent = document.getElementById('content');
+        <script async="true">
+            async function trackData(track_id) {
+                let track = await fetch(`/track/${track_id}`).then(response => response.json());
+                let features = await fetch(`/audio_features/${track_id}`).then(response => response.json());
+                let trackElement = buildTrackHTML(track['track'], features['features']);
+                return trackElement;
+            }
+            
             let track_id = "4AuZBIN4aeFL9egQldQfRn"; // PLACEHOLDER
-            buildTrackHTML(parent, track_id);
+            let trackElement = trackData(track_id).then(trackElement => {
+                document.getElementById('content').appendChild(trackElement);
+            });
+
 
         </script>
 
