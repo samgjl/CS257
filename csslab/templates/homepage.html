@@ -1,0 +1,33 @@
+<head>
+  <style>
+    .my-class {
+      color: red;
+    }
+    .big-text {
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<h1 class="my-class" id="hello">
+  Hello World!
+</h1>
+
+<p>
+  {{someText}}
+</p>
+
+<script>
+  let colorArr = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+  let colorIndex = 1;
+  function changeColor() {
+    document.getElementById('hello').style.color = colorArr[colorIndex];
+    colorIndex = (colorIndex + 1) % colorArr.length;
+  }
+</script>
+
+<p class="big-text">
+<button onclick="changeColor()">
+   Change Color
+</button>
+</p>

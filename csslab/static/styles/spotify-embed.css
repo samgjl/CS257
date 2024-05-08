@@ -1,0 +1,122 @@
+
+/* Parent class for a track */
+.spotify-embed {
+    font-size: large;
+    border-radius: 10px;
+    background-color: #1d1d1d;
+    color: white;
+    position: relative;
+    width: 95%;
+    height: 50px;
+    font-weight: normal;
+    vertical-align: middle;
+    margin: 5px;
+}
+
+/* Album image */
+.spotify-embed img {
+    /* height: 75%; */
+    vertical-align: middle;
+    display: inline-block;
+    margin: auto;
+    height: 40px;
+    padding: 5px 5px;
+}
+
+/* Track and artist names */
+.spotify-embed .track-artist {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: normal;
+}
+
+.track {
+    font-size: large;
+    text-align: left;
+    vertical-align: middle;
+    font-size: normal;
+    position: absolute;
+    left: 50px;
+    top: 7px;
+}
+
+.artist {
+    font-size: small;
+    text-align: left;
+    font-size: normal;
+    left: 60px;
+    bottom: 5px;
+    position: absolute;
+}
+
+.audio_features {
+    font-size: normal;
+    float: right;
+    vertical-align: middle;
+    /* padding-right: 10px;
+    padding-top: 10px; */
+    padding: 15px;
+}
+
+.heatmap {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    border: 1px solid #1d1d1d;
+    border-radius: 7px;
+    width: 7px;
+    height: 7px;
+    padding: 5px;
+}
+
+
+
+
+/* popup class that only appears on hover */
+.popup {
+    display: none;
+    position: absolute;
+    width: 100px;
+    height: 25px;
+    left: -45px;
+    bottom: 30px;
+    z-index: 1;
+    background-color: #f9f9f9;
+    color: #1d1d1d;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: small;
+    text-align: center;
+}
+
+.heatmap:hover .popup {
+    display: block;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .track {
+        left: 50px;
+    }
+    .artist {
+        left: 60px;
+    }
+
+    .audio_features {
+        vertical-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        padding: 10px;
+    }
+
+    .heatmap {
+        width: 5px;
+        height: 5px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .heatmap {
+        opacity: 0;
+    }
+}

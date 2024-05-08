@@ -1,0 +1,76 @@
+/* FOOTER */
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: #191414;
+  color: white;
+  text-align: center;
+  margin-left: -10px;
+  margin-bottom: -10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Columns */
+footer .column {
+  flex-basis: 33.33%;
+  padding: 10px;
+}
+
+/* List items */
+footer ul,
+footer li {
+  list-style-type: none;
+  text-align: left;
+  margin: 10px 40px;
+  padding: 0;
+}
+
+/* Links */
+footer .left,
+footer .right {
+  margin: 10px 40px;
+  text-align: left;
+  text-decoration: none;
+  color: #f2f2f2;
+}
+
+footer .right {
+  text-align: right;
+}
+
+/* Format links */
+footer a:hover {
+  color: #1DB954;
+}
+
+/* 'Open Spotify' button */
+.open-spotify {
+  border-radius: 50px;
+  background-color: #1DB954;
+  color: white;
+  position: relative;
+  border: none;
+  cursor: pointer;
+}
+
+.open-spotify span {
+  font-size: large;
+  position: relative;
+  vertical-align: middle;  
+  right: 5px;
+}
+
+.open-spotify img {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.open-spotify:hover {
+  background-color: rgba(0, 0, 0, 1);
+  filter: invert(1);
+}

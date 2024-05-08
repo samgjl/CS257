@@ -1,0 +1,70 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+  
+.content {
+min-height: 100vh;
+}
+
+.button {
+    background-color: #1fc640;
+    font-size: large;
+    color: #000000;
+    border: none;
+    /* border-radius:10px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    transition: .1s;
+}
+
+.button:active {
+    transform: scale(1);
+    transition: .1s;
+}
+
+#login {
+    position: absolute;
+    top: 30%;
+    left: 70%;
+    min-height: 30px; 
+    min-width: 120px;
+}
+
+#submit {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    min-height: 30px; 
+    min-width: 120px;
+}
+
+
+.id_entry {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    min-height: 30px; 
+    min-width: 120px;
+}
+
+.frame {
+    background-color: #dddddd;
+    font-size: small;
+    color: #000000;
+}
+
+#results {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+}

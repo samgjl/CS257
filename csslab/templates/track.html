@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image" href="static/img/schiller_logo.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/styles/footer.css">
+    <link rel="stylesheet" href="static/styles/navbar.css">
+    <link rel="stylesheet" href="static/styles/spotify-embed.css">
+    <script src="/static/js/navbar.js"></script>
+    <script src="/static/js/footer.js"></script>
+    <script src="/static/js/render_track.js"></script>
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+    <title>Schillify</title>
+</head>
+<body>
+    <nav-bar></nav-bar>
+
+    <div id="content" class="content">
+        <!-- !!PAGE CONTENT GOES HERE!! -->
+        <script>
+            let parent = document.getElementById('content');
+            let track_id = "4AuZBIN4aeFL9egQldQfRn"; // PLACEHOLDER
+            buildTrackHTML(parent, track_id);
+
+        </script>
+
+
+    </div>
+
+<custom-footer></custom-footer>    
+</body>
+</html>
