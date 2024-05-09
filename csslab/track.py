@@ -8,7 +8,7 @@ def getTrack(key, track_id):
     url = f"https://api.spotify.com/v1/tracks/{track_id}"
     headers = {"Authorization": f"Bearer {key}"}
     response = requests.get(url, headers = headers)    
-    return response.json()
+    return {'track': response.json()}
 
 # Fetch the track's audio_features from Spotify
 def getAudioFeatures(key, features_id):
