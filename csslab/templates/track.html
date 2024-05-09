@@ -242,7 +242,7 @@
             function getColor(img) {
                 let colorThief = new ColorThief();
                 let color = colorThief.getColor(img);
-                document.body.style.background = `linear-gradient(0deg, #191414 50%, rgb(${color[0]}, ${color[1]}, ${color[2]}) 100%)`;
+                document.body.style.background = `linear-gradient(0deg, #191414 25%, rgb(${color[0]}, ${color[1]}, ${color[2]}) 50%, rgb(${color[0]}, ${color[1]}, ${color[2]}) 66%, #191414 87.5%)`;
                 document.body.style.color = "white";
             }
             setBackground();
