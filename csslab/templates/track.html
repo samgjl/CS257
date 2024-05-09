@@ -4,35 +4,273 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" type="image" href="static/img/schiller_logo.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
     <link rel="stylesheet" href="static/styles/footer.css">
     <link rel="stylesheet" href="static/styles/navbar.css">
     <link rel="stylesheet" href="static/styles/spotify-embed.css">
+    <link rel="stylesheet" href="static/styles/loader.css">
     <script src="/static/js/navbar.js"></script>
     <script src="/static/js/footer.js"></script>
     <script src="/static/js/render_track.js"></script>
     <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
     <title>Schillify</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .searchbar {
+            display: flex;
+            position: relative; 
+            justify-content: center;
+            margin-top: 20px;
+        }
+        input {
+            width: 350px;
+            text-align: center;
+            height: 50px;
+            font-size: 20px;
+            padding-left: 10px;
+            border-radius: 20px;
+            border: 1px solid #bbbbbb;
+            outline: none;
+        }
+
+        input:focus {
+            border: 1px solid #1DB954;
+        }
+
+        .go {
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            background-color: #1DB954;
+            border-radius: 20px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .go:hover {
+            background-color: #1ED760;
+        }
+        
+        .circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #bfbfbf;
+            display: inline-block;
+            margin: auto 5px;
+        }
+
+        #upper-track {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0px 25px;
+            display: grid;
+            justify-content: left;
+            margin-top: 20px;
+            grid-template-columns: 1fr 2fr;
+        }
+        #upper-track a {
+            text-decoration: none;
+            color: white;
+        }
+        #upper-track a:hover {
+            text-decoration: underline;
+        }
+
+        #album-image {
+            margin-top: 25px;
+            width: 360px;
+            height: 360px;
+        }
+        
+        #track-info {
+            display: grid;
+            margin-top: 20px;
+            grid-template-rows: 0.5fr 0.5fr 1fr 0.5fr;
+        }
+        #title {
+            font-size: 50px;
+            font-weight: bold;
+            padding: 0px;
+        }
+        #info a {
+            color: white;
+        }
+
+        #audio-features {
+            justify-content: center;
+            width: 72%;
+            display: flex;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #audio-features .big-heatmap {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            border: 1px solid #1d1d1d;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 1);
+        }
+        
+        .big-heatmap .big-popup {
+            display: none; /* Initially hide the popup */
+            position: absolute;
+            width: 120px; /* Adjust the width to your desired size */
+            height: 40px; /* Adjust the height to your desired size */
+            bottom: calc(100% + 10px); /* Position the popup below the parent */
+            left: 50%; /* Position the popup horizontally centered */
+            transform: translateX(-50%); /* Center the popup horizontally */
+            z-index: 1;
+            background-color: #f9f9f9;
+            color: #1d1d1d;
+            border-radius: 10px;
+            font-size: small;
+            text-align: center;
+            overflow: visible;
+        }
+        
+        .big-heatmap:hover .big-popup {
+            display: block; /* Show the popup when hovering over the parent */
+        }
+        
+
+    </style>
 </head>
 <body>
     <nav-bar></nav-bar>
 
     <div id="content" class="content">
         <!-- !!PAGE CONTENT GOES HERE!! -->
+
+        <div id="upper-track">
+            <img id="album-image" src="https://i.scdn.co/image/ab67616d0000b2732a061f8cc383443cbb46adf6" alt="Track Image" class="track-image">
+            <div id="track-info">
+                <a href="/??????" id="title">Track Title</a>
+                <div id="info">
+                    <a href="/?????">ARTIST</a>
+                    <div class="circle"></div>
+                    <a href="/?????">ARTIST 2 ...</a>
+                    <div class="circle"></div>
+                    <a href="/?????">YEAR</a>
+                    <div class="circle"></div>
+                    <a>DURATION</a>
+                    <div class="circle"></div>
+                    <a>POPULARITY</a>
+                </div>
+
+                <iframe
+                    style="border-radius:12px; float: center;"
+                    scrolling-attribute: scrolling="no"
+                    src="https://open.spotify.com/embed/track/1MJiBBFmalKgWI8SKJr1dw?utm_source=generator" 
+                    width="66%" 
+                    height="100%" 
+                    frameBorder="0" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy">
+                </iframe>
+
+
+                <div id="audio-features">
+                    <div id='acousticness' class="big-heatmap">
+                        <div class="big-popup"><b>Acousticness</b><br>0</div>
+                    </div>
+                    <div id='danceability' class="big-heatmap">
+                        <div class="big-popup"><b>Danceability</b><br>0</div>
+                    </div>
+                    <div id='energy' class="big-heatmap">
+                        <div class="big-popup"><b>Energy</b><br>0</div>
+                    </div>
+                    <div id='instrumentalness' class="big-heatmap">
+                        <div class="big-popup"><b>Instrumentalness</b><br>0</div>
+                    </div>
+                    <div id='key' class="big-heatmap">
+                        <div class="big-popup"><b>Key</b><br>0</div>
+                    </div>
+                    <div id='liveness' class="big-heatmap">
+                        <div class="big-popup"><b>Liveness</b><br>0</div>
+                    </div>
+                    <div id='loudness' class="big-heatmap">
+                        <div class="big-popup"><b>Loudness</b><br>0</div>
+                    </div>
+                    <div id='mode' class="big-heatmap">
+                        <div class="big-popup"><b>Mode</b><br>0</div>
+                    </div>
+                    <div id='speechiness' class="big-heatmap">
+                        <div class="big-popup"><b>Speechiness</b><br>0</div>
+                    </div>
+                    <div id='tempo' class="big-heatmap">
+                        <div class="big-popup"><b>Tempo</b><br>0</div>
+                    </div>
+                    <div id='time_signature' class="big-heatmap">
+                        <div class="big-popup"><b>Time Signature</b><br>0</div>
+                    </div>
+                    <div id='valence' class="big-heatmap">
+                        <div class="big-popup"><b>Valence</b><br>0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            async function setBackground() {
+                // Get track data (replaced later)
+                let track = await fetch('/track/1MJiBBFmalKgWI8SKJr1dw');  
+                track = await track.json();
+                console.log(track['track']['album']);
+                // For now, use a burner image
+                let img = await document.createElement("img");
+                img.src = await track['track']['album']['images'][0]['url'];
+                await img.setAttribute("crossorigin", "anonymous");
+                // Color background
+                if (img.complete) {
+                    getColor(img);
+                } else {
+                    img.addEventListener('load', function() {
+                        getColor(img);
+                    });
+                }
+            }
+
+            function getColor(img) {
+                let colorThief = new ColorThief();
+                let color = colorThief.getColor(img);
+                document.body.style.background = `linear-gradient(0deg, #191414 50%, rgb(${color[0]}, ${color[1]}, ${color[2]}) 100%)`;
+                document.body.style.color = "white";
+            }
+            setBackground();
+        </script>
+        
+        <!-- <div class="searchbar">
+            <input class="input" type="text" id="id_entry" placeholder="Paste in the URL of a Spotify track" value="">
+            <button class="go" onclick="trackData()">Search</button>
+        </div>
+        <div class="lds-facebook" style="display: none"><div></div><div></div><div></div></div>
         <script async="true">
-            async function trackData(track_id) {
+            let track_id = "";
+            async function trackData() {
+                let entry = document.getElementById('id_entry');
+                let track_id = entry.value.split('/').pop();
+                entry.parentElement.remove();
+                let loading = document.querySelector('.lds-facebook');
+                loading.style.display = "block";                
+
                 let track = await fetch(`/track/${track_id}`).then(response => response.json());
                 let features = await fetch(`/audio_features/${track_id}`).then(response => response.json());
-                let trackElement = buildTrackHTML(track['track'], features['features']);
-                return trackElement;
+                //! Change to be a full page-worth for the song:
+                let trackElement = await buildTrackHTML(track['track'], features['features']);
+                document.querySelector("#content").appendChild(trackElement);
+                // Remove loader:
+                loading.style.display = "none";
             }
-            
-            let track_id = "4AuZBIN4aeFL9egQldQfRn"; // PLACEHOLDER
-            let trackElement = trackData(track_id).then(trackElement => {
-                document.getElementById('content').appendChild(trackElement);
-            });
-
-
-        </script>
+        </script> -->
 
 
     </div>
