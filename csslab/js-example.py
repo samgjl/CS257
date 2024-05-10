@@ -1,7 +1,6 @@
-from flask import Flask
-from flask import render_template
-import connection
-import track as get_track
+from flask import Flask, request, render_template, jsonify
+import backend.connection as connection
+import backend.recommendations as get_track
 
 app = Flask(__name__)
 
@@ -26,7 +25,11 @@ def getAudioFeatures(track_id):
     key = connection.getKey()
     return get_track.getAudioFeatures(key, track_id)
 
+@app.route("/recommendations/", methods=["POST"])
+def recommendations():
+    body = request.get_json()
+    return get_track.getRecommendations(body)
 
 if __name__ == '__main__':
-    my_port = 5115
+    my_port = 5215
     app.run(host='0.0.0.0', port = my_port, debug=True)
