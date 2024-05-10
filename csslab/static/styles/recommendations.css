@@ -1,0 +1,162 @@
+html {
+    scroll-behavior: smooth;
+    color: white;
+    background-color: #191414;
+    /* background: linear-gradient(0deg, #191414 25%, #888888 50%, #888888 66%, #191414 87.5%); */
+    background: linear-gradient(0deg, #191414 25%, #3b4145 66%, #3b4145 80%, #191414 90%);
+}
+
+.searchbar-container {
+    justify-content: center;
+    float: center;
+    margin-top: 15%;
+}
+
+.searchbar-container h1 {
+    font-size: 50px;
+    text-align: center;
+}
+.searchbar-container h3 {
+    font-weight: normal;
+    text-align: center;
+}
+
+.searchbar {
+    display: flex;
+    position: relative; 
+    justify-content: center;
+    margin-top: 20px;
+}
+
+input {
+    width: 350px;
+    text-align: center;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 10px;
+    border-radius: 20px;
+    border: 1px solid #bbbbbb;
+    outline: none;
+}
+
+input:focus {
+    border: 1px solid #1DB954;
+}
+
+.go {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    background-color: #1DB954;
+    border-radius: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.go:hover {
+    background-color: #1ED760;
+}
+
+.circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #bfbfbf;
+    display: inline-block;
+    margin: auto 5px;
+}
+
+.upper-track {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0px 25px;
+    display: grid;
+    justify-content: left;
+    margin-top: 50px;
+    grid-template-columns: 1fr 2fr;
+}
+.upper-track a {
+    text-decoration: none;
+    color: white;
+}
+
+.upper-track .a:hover {
+    text-decoration: underline;
+}
+
+.album-image {
+    margin-top: 25px;
+    width: 360px;
+    height: 360px;
+}
+
+.track-info {
+    display: grid;
+    margin-top: 20px;
+    grid-template-rows: 0.5fr 0.33fr 0.65fr 0.1fr 0.2fr;
+}
+.track-info h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin:0px;
+}
+.info {
+    margin-left: 25px;
+}
+.info a {
+    color: white;
+}
+
+div .audio-features-container {
+    align-content: center;
+}
+h3 {
+    font-size: 24px;
+    margin: 0px;
+}
+
+.audio-features-container .audio-features {
+    float: center;
+    width: 70%;
+    display: flex;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.audio-features .big-heatmap {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #1d1d1d;
+    margin: auto;
+}
+
+.big-heatmap .big-popup {
+    display: none; 
+    position: absolute;
+    width: 120px;
+    height: 40px; 
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%); /* REMEMBER THIS! */
+    z-index: 1;
+    background-color: #f9f9f9;
+    color: #1d1d1d;
+    border-radius: 10px;
+    font-size: small;
+    text-align: center;
+    overflow: visible;
+}
+
+.big-heatmap:hover .big-popup {
+    display: block; /* Show the popup when hovering over the parent */
+}
+
+.recommendations h2 {
+    margin-top: 50px;
+    font-size: 42px;
+    text-align: center;
+}
