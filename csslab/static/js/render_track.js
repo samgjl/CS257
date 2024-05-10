@@ -19,6 +19,21 @@ async function embedSpotifyPlayer(track_id) {
     return iframe;
 }
 
+function getTrackColor(img, div) {
+    let colorThief = new ColorThief();
+    let color = colorThief.getColor(img);
+    if (color[0] + color[1] + color[2] >= 450) {
+        div.querySelector(".track").style.color = "black";
+        div.querySelector(".artist").style.color = "black";
+    }
+    // div.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+    div.style.background = `linear-gradient(90deg, 
+        rgb(${color[0]}, ${color[1]}, ${color[2]}) 0%, 
+        rgb(${color[0]}, ${color[1]}, ${color[2]}) 50%, 
+        #191414 80%)`;
+    return color;
+}
+
 /* Build a track manually (no embedding)
     * @param {Object} track - the track object
     * @param {array} audio_features - the audio features object
@@ -44,8 +59,8 @@ async function buildTrackHTML(track, features) {
     div.innerHTML = `
         <img src="${image_src}" class="spotify-logo" crossorigin='anonymous'>
         <div class="track-artist">
-            <span class="track">${name}</span>
-            <span class="artist">${artist}</span>
+            <a class="track" href="/track?id=${track['id']}">${name}</a>
+            <a class="artist" href="${track.artists[0].external_urls.spotify}" target="_blank">${artist}</a>
         </div>
         <div class="audio_features">
             <div class="heatmap" id="acousticness" style="background-color: hsl(${(1.0 - features[0]) * 360}, 100%, 50%)">
@@ -70,7 +85,7 @@ async function buildTrackHTML(track, features) {
             </div>
             <div class="heatmap" id="key" style="background-color: hsl(${(1.0 - features[4]/11) * 360}, 100%, 50%)">
                 <div class="popup">
-                    <b>Key</b><br>${keys[features[4]]}
+                    <b>Key</b><br>${keys[parseInt(features[4])]}
                 </div>
             </div>
             <div class="heatmap" id="liveliness" style="background-color: hsl(${(1.0 - features[5]) * 360}, 100%, 50%)">
@@ -83,9 +98,9 @@ async function buildTrackHTML(track, features) {
                     <b>Loudness</b><br>${features[6]} DB
                 </div>
             </div>
-            <div class="heatmap" id="mode" style="background-color: hsl(${(1.0 - features[7]) * 360}, 100%, 50%)">
+            <div class="heatmap" id="mode" style="background-color: hsl(${(1.0 - features[7]/2) * 360}, 100%, 50%)">
                 <div class="popup">
-                    <b>Mode</b><br>${["Minor", "Major"][features[7]]}
+                    <b>Mode</b><br>${["Minor", "Major"][parseInt(features[7])]}
                 </div>
             </div>
             <div class="heatmap" id="speechiness" style="background-color: hsl(${(1.0 - features[8]) * 360}, 100%, 50%)">
@@ -98,9 +113,9 @@ async function buildTrackHTML(track, features) {
                     <b>Tempo</b><br>${features[9]} BPM
                 </div>
             </div>
-            <div class="heatmap" id="time_signature" style="background-color: hsl(${(1.0 - features[10]) * 360}, 100%, 50%)">
+            <div class="heatmap" id="time_signature" style="background-color: hsl(${(1.0 - features[10]/7) * 360}, 100%, 50%)">
                 <div class="popup">
-                    <b>Time Signature</b><br>${features[10]}
+                    <b>Time Signature</b><br>${parseInt(features[10])}/4
                 </div>
             </div>
             <div class="heatmap" id="valence" style="background-color: hsl(${(1.0 - features[11]) * 360}, 100%, 50%)">
@@ -109,5 +124,16 @@ async function buildTrackHTML(track, features) {
                 </div>
             </div>
         </div>`;
+
+        // Set up a dummy image to grab color:
+        let img = div.querySelector("img");
+        img.src = track['album']['images'][0]['url'];
+        img.setAttribute("crossorigin", "anonymous");
+        if (img.complete) {
+            getTrackColor(img, div);
+        } else {
+            img.addEventListener('load', () => getTrackColor(img, div));
+        }
+
     return div;
 }
